@@ -1,0 +1,13 @@
+import Data.Char
+main :: IO ()
+main = do
+    strcontent <- readFile "nomes.csv"
+    let strlist = lines strcontent
+        strnew = map (userLogin)strlist
+    writeFile "logins.csv" (unlines (zipWith(++) strlist strnew))
+
+getLogin:: String->String
+getLogin str=map toLower (head str:last (words str))
+
+userLogin:: String->String
+userLogin str= "," ++ getLogin str
