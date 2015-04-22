@@ -70,8 +70,9 @@ ciume(A,B) :- relacionamento(A,X), relacionamento(B,X).
 
 motivo(X) :- insano(X); pobre(X); ciume(X,anita).
 
+localCrime(X) :- quinta(apartamento,X); sexta(apartamento,X).
 roubouArma(X) :- quinta(portoalegre,X); quarta(santamaria,X); quarta(apartamento,X); quinta(apartamento,X).
 roubouChave(X) :- segunda(santamaria,X); terça(portoalegre,X).
-acesso(X) :- quinta(apartamento,X), sexta(apartamento,X), roubouArma(X), roubouChave(X). 
+acesso(X) :- localCrime(X), roubouArma(X), roubouChave(X). 
 
 assassino(X) :- motivo(X), acesso(X).
